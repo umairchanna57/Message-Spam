@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Classification</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #525353, #27466e);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        #container {
+            text-align: center;
+            background-color: rgba(4, 57, 78, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.377);
+            width: 1000px; /* Increase the width to your desired size */
+            height: 300px;
+        }
+
+        h1 {
+            color: #f3f3f3;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            
+            padding: 8px;
+            margin-left: -10px;
+            margin-bottom: 10px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Spam Classification</h1>
+        <form action="/predict" method="post">
+            <label for="message">Enter a message:</label>
+            <input type="text" id="message" name="message" required>
+            <button type="submit">Predict</button>
+        </form>
+        <div id="result">
+            {% if prediction %}
+                <p>Classification Result: {{ prediction }}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
